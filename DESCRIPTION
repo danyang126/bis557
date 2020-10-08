@@ -1,0 +1,20 @@
+Package: bis557
+Title: Package Encapsulating work for BIS557
+Version: 0.0.1
+Authors@R: 
+    person(given = "Danyang",
+           family = "Geng",
+           role = c("aut", "cre"),
+           email = "danyang.geng@yale.edu",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: homework.
+License: `use_mit_license()`, `use_gpl3_license()` or friends to
+    pick a license
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

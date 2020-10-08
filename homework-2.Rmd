@@ -1,0 +1,56 @@
+---
+title: "homework-2"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{homework-2}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(bis557)
+```
+
+
+$$ 
+\hat{\beta}_{0}=1\\
+\hat{\beta}_{1}=x
+$$
+
+
+```{r}
+penguinsi <- na.omit(penguins)
+```
+
+
+
+
+```{r}
+lm_ridge <-function(X, y, lambda_vals){
+svd_obj <- svd(X)
+U <- svd_obj$u
+V <- svd_obj$v
+svals <- svd_obj$d
+k <- length(lambda_vals)
+ridge_beta <- matrix(NA_real_, nrow = k, ncol = ncol(X))
+ for (j in seq_len(k)){
+   D <- diag(svals / (svals^2 + lambda_vals[j]))
+   ridge_beta[j,] <- V %*% D %*% t(U) %*% y
+ }
+
+ridge_beta
+}
+
+```
+
+
+
+
+
